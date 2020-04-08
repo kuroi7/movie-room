@@ -1,10 +1,13 @@
 .side
   .side-header
     .side-header__box
-      .side-header__box--name
-        名前
-      .side-header__box__btn
-        テスト
+      = current_user.name
+      -# .side-header__box--name
+      -#   名前
+      -# .side-header__box__btn
+      -#   テスト
+      = link_to edit_user_path(current_user) do
+        = icon('fas', 'cog', class: 'icon')
   .groups
     .groups__group
       %p.groups__group--name

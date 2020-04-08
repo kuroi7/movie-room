@@ -1,10 +1,22 @@
 .account-page {
+  // background-image: url(https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60);
+  // background-image: url(https://images.unsplash.com/photo-1517486518908-97a5f91b325f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80);
+  // background-image: url(https://images.unsplash.com/photo-1563381013529-1c922c80ac8d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1601&q=80);
+  background-image: url(https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);
+  background-size: cover;
+  color: #fffc52;
+  // padding-right: 10px;
+  .logo{
+    // position: relative;
+    // left: ;
+  }
   .account-page__inner {
     width: 980px;
-    margin: 60px auto;
-    padding: 60px;
-    background-color: #fff;
-    border: 1px solid #ddd;
+    height: 100vh;
+    // margin: 60px auto;
+    padding: 100px;
+    // background-color: #fff;
+    // border: 1px solid #ddd;
     border-radius: 5px;
 
     .account-page__inner--left, .account-page__inner--right {
