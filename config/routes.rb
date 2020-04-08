@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'messages#index'
-  # root 'groups#index'
-  # get 'home/index'
-  get 'messages/index'
+  # 下の行は削除する
+  # get 'messages/index
 
-  # root to: "home#index"
+  root "messages#index"
+  resources :users, only: [:edit, :update]
 end
