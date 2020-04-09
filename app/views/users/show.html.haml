@@ -1,0 +1,115 @@
+.my_profile
+  .my_sidebar
+    .my_sidebar__Wrap
+      %h1
+        %img
+      .mainnav
+        %p.menuWrap
+        .panel
+          %ul
+            %li
+              = link_to edit_user_path(current_user) do
+                = icon('fas', 'cog', class: 'icon')
+            %li
+              = link_to "#profile" do
+                profile
+            %li
+              = link_to "#movie_ranking" do
+                movie_ranking
+            %li
+              = link_to "#review" do
+                review
+            %li
+              = link_to "#message" do
+                message
+            %li
+              = link_to "#friend" do
+                friend
+
+  .my_content
+    %p
+      %img
+    .my_content__profile{ id: "profile" }
+      %header
+        %h2
+          profile
+          %span
+      -# %img(src="https://images.unsplash.com/photo-1512485694743-9c9538b4e6e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80" alt="profile_image")
+      %img(src="#{current_user.profile_img}" alt="profile_image")
+      %p #{current_user.name}
+      .my_content__profile--introduction
+        = current_user.introduction
+    .my_content__movie_ranking{ id: "movie_ranking" }
+      %header
+        %h2
+          my_movie_ranking
+        .ranking_area
+          %ul
+            %li
+              .rank
+                １位：華麗なるギャツビー
+            %li
+              .rank
+                ２位：殺人の追憶
+            %li
+              .rank
+                ３位：ジュラシックパーク
+            %li
+              .rank
+                ４位：ピーターラビット
+            %li
+              .rank
+                ５位：ロード・オブ・ザ・リング
+    .my_content__review{ id: "review" }
+      %header
+        %h2
+          review
+        %ul
+          %li
+            %img(src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
+          %li
+            %img(src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
+          %li
+            %img(src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
+          %li
+            %img(src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
+
+    .my_content__message{ id: "message" }
+      %header
+        %h2
+          -# message
+        = link_to messages_path do
+          message
+        %ul
+          %li
+            %img(src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
+          %li
+            %img(src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
+          %li
+            %img(src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
+          %li
+            %img(src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
+
+    .my_content__friends{ id: "friend" }
+      %header
+        %h2
+          friend
+      .my_content__friends--area
+        .friend_img
+          %img(src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
+        .friend_img
+          %img(src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
+        .friend_img
+          %img(src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
+        .friend_img
+          %img(src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
+        .friend_img
+          %img(src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
+        .friend_img
+          %img(src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
+        .friend_img
+          %img(src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
+        .friend_img
+          %img(src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
+
+

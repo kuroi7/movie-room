@@ -1,0 +1,130 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+@import url(https://fonts.googleapis.com/css?family=Modern+Antiqua);
+
+@mixin anchorlink(){
+  a:link, a:visited, a:hover, a:active {
+    color: #ffffff;
+    text-decoration: none;
+  }
+}
+@mixin contentd_img($width:300px) {
+  width:  $width;
+  height: 80%;
+}
+@mixin img_border_radius($border_radius:50%) {
+  border-radius: $border_radius;
+  background-position: center center;
+}
+@mixin side_scroll_list(){
+  img {
+    width:  300px;
+    height: 100%;
+  }
+  ul {
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  ul li {
+    display: inline-block;
+    padding-right:10px;
+  }
+}
+
+.my_sidebar{
+  width: calc(100vw - 80%);
+  height: 100vh;
+  padding: 50px 0px 0px 50px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  font-size: 20px;
+  padding: 50px 0px 0px 50px;
+  background: rgba(45,45,45, 0.8);
+
+  // background: #727272;
+  // background-color: #000000;
+  @include anchorlink();
+  &__Wrap{
+
+  }
+}
+.my_profile{
+  background-image: url(https://images.unsplash.com/photo-1517486518908-97a5f91b325f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80);
+  background-size: cover;
+  .my_content{
+    width: 80%;
+    // background-color: beige;
+    // opacity: 0.8;
+    padding: 50px 0px 0px 50px;
+    background: rgba(45,45,45, 0.5);
+    color: #ffffff;
+
+    &__profile{
+      // background-color: cadetblue;
+      height: 50vh;
+      display: flex;
+      margin-bottom: 50px;
+      position: relative;/*相対配置*/
+      img {
+        @include img_border_radius();
+        @include contentd_img(400px);
+      }
+      p {
+        position: absolute;/*絶対配置*/
+        color: white;/*文字は白に*/
+        font-size: 30px;
+        top: 150px;
+        left: 150px;
+      }
+      &--introduction{
+        padding: 10px;
+      }
+    }
+    &__movie_ranking{
+      border: 1px solid #ddd;
+      // text-align: center;
+      // background-color: deeppink;
+      .ranking_area{
+        padding-left: 40px;
+      }
+      .rank{
+        padding-left: 20px;
+        font-size: 30px;
+      }
+      margin-bottom: 50px;
+    }
+    &__review{
+      border: 1px solid #ddd;
+      // background-color: coral;
+      // height: 50vh;
+      @include side_scroll_list();
+      margin-bottom: 50px;
+    }
+    &__message{
+      border: 1px solid #ddd;
+      // background-color: darkcyan;
+      // height: 50vh;
+      @include side_scroll_list();
+      margin-bottom: 50px;
+    }
+    &__friends{
+      border: 1px solid #ddd;
+      // background-color: darkorchid;
+      // height: 100%;
+      &--area{
+        display: flex;
+        flex-wrap: wrap;
+        margin: 20px;
+        .friend_img{
+          margin: 15px;
+          img {
+            @include img_border_radius();
+            @include contentd_img(200px);
+          }
+        }
+      }
+      margin-bottom: 50px;
+    }
+  }
+}

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   # 下の行は削除する
   # get 'messages/index
 
-  root "messages#index"
-  resources :users, only: [:edit, :update]
+  # root "messages#index"
+  root "users#show"
+  resources :users, only: [:edit, :update, :show]
+  resources :messages, only: [:index]
 end
