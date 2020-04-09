@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   root "users#show"
   resources :users, only: [:edit, :update, :show]
   resources :messages, only: [:index]
+  resources :groups, only: [:index, :new, :create, :edit, :update]
 end

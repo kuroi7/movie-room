@@ -9,7 +9,7 @@
 }
 @mixin contentd_img($width:300px) {
   width:  $width;
-  height: 80%;
+  height: auto;
 }
 @mixin img_border_radius($border_radius:50%) {
   border-radius: $border_radius;
@@ -17,18 +17,24 @@
 }
 @mixin side_scroll_list(){
   img {
-    width:  300px;
-    height: 100%;
+    width:  250px;
+    height: auto;
   }
   ul {
     overflow-x: auto;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
   }
+
   ul li {
     display: inline-block;
     padding-right:10px;
+    .li_content {
+      margin: 10px 15px;
+    }
   }
+  
+
 }
 
 .my_sidebar{
@@ -56,7 +62,7 @@
     width: 80%;
     // background-color: beige;
     // opacity: 0.8;
-    padding: 50px 0px 0px 50px;
+    padding: 50px 0px 0px 100px;
     background: rgba(45,45,45, 0.5);
     color: #ffffff;
 
@@ -67,6 +73,7 @@
       margin-bottom: 50px;
       position: relative;/*相対配置*/
       img {
+        background-color: #7a7c00;
         @include img_border_radius();
         @include contentd_img(400px);
       }

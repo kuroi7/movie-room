@@ -1,16 +1,19 @@
+
 .side
   .side-header
     .side-header__box
-      = current_user.name
-      -# .side-header__box--name
-      -#   名前
-      -# .side-header__box__btn
-      -#   テスト
-      = link_to edit_user_path(current_user) do
-        = icon('fas', 'cog', class: 'icon')
+      .side-header__box--name
+        = current_user.name
+      .side-header__box__btn
+        = link_to new_group_path do
+          = icon('far', 'edit', class: 'side-header__box__btn--edit')
+        = link_to edit_user_path(current_user) do
+          = icon('fas', 'cog', class: 'side-header__box__btn--cog')
   .groups
-    .groups__group
-      %p.groups__group--name
-        test
-      %p.groups__group--message
-        test２
+    - current_user.groups.each do |group|
+      .groups__group
+        = link_to '#' do
+          %p.groups__group--name
+            = group.name
+          %p.groups__group--message
+            メッセージはまだありません。
