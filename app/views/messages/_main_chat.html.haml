@@ -3,20 +3,25 @@
     .main-header__box
       .main-header__box__leftbox
         .main-header__box__leftbox--group_name
-          グループ名
+          = @group.name
         .main-header__box__leftbox--user_name
-          名前
+          - @group.users.each do |user|
+            =user.name
+      =link_to edit_group_path(@group.id) do
         .main-header__box__edit-btn
           edit
   .messages
     .message
-      testtest
+      -# test
+      = render @messages
 
   .form
-    .form__box
-      .form__box__message-area
-        .form__mask
-      -#     = f.label :image, class: 'form__box__message-area__pic' do
-      -#       = icon('fas', 'image')
-      -#       = f.file_field :image, class: 'form__box__message-area__pic--icon'
-      -# = f.submit 'Send', class: 'form__box__send-btn'
+    = form_for [@group, @message] do |f|
+      .form__box
+        .form__box__message-area
+          = f.text_field :content, class: 'form__box__message-area--text', placeholder: 'type a message'
+          .form__mask
+            = f.label :image, class: 'form__box__message-area__pic' do
+              = icon('fas', 'image')
+              = f.file_field :image, class: 'form__box__message-area__pic--icon'
+        = f.submit 'Send', class: 'form__box__send-btn'

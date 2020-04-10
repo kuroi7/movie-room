@@ -1,30 +1,30 @@
 .my_profile
-  .my_sidebar
-    .my_sidebar__Wrap
-      %h1
-        %img
-      .mainnav
-        %p.menuWrap
-        .panel
-          %ul
-            %li
-              = link_to edit_user_path(current_user) do
-                = icon('fas', 'cog', class: 'icon')
-            %li
-              = link_to "#profile" do
-                profile
-            %li
-              = link_to "#movie_ranking" do
-                movie_ranking
-            %li
-              = link_to "#review" do
-                review
-            %li
-              = link_to "#message" do
-                message
-            %li
-              = link_to "#friend" do
-                friend
+  -# .my_sidebar
+  -#   .my_sidebar__Wrap
+  -#     %h1
+  -#       %img
+  -#     .mainnav
+  -#       %p.menuWrap
+  -#       .panel
+  -#         %ul
+  -#           %li
+  -#             = link_to edit_user_path(current_user) do
+  -#               = icon('fas', 'cog', class: 'icon')
+  -#           %li
+  -#             = link_to "#profile" do
+  -#               profile
+  -#           %li
+  -#             = link_to "#movie_ranking" do
+  -#               movie_ranking
+  -#           %li
+  -#             = link_to "#review" do
+  -#               review
+  -#           %li
+  -#             = link_to "#message" do
+  -#               message
+  -#           %li
+  -#             = link_to "#friend" do
+  -#               friend
 
   .my_content
     %p
@@ -34,7 +34,6 @@
         %h2
           profile
           %span
-      -# %img(src="https://images.unsplash.com/photo-1512485694743-9c9538b4e6e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80" alt="profile_image")
       %img(src="#{current_user.profile_img}" alt="profile_image")
       %p #{current_user.name}
       .my_content__profile--introduction
@@ -85,7 +84,10 @@
               .li_content
                 %img(src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
                 %p
-                  = group.name
+                  = link_to group_messages_path(group) do
+                    = group.name
+                  %br
+                  = group.show_last_message
 
     .my_content__friends{ id: "friend" }
       %header

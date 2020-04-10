@@ -56,15 +56,15 @@
   }
 }
 .my_profile{
-  background-image: url(https://images.unsplash.com/photo-1517486518908-97a5f91b325f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80);
+  background-color: #ffffff;
   background-size: cover;
   .my_content{
     width: 80%;
     // background-color: beige;
     // opacity: 0.8;
     padding: 50px 0px 0px 100px;
-    background: rgba(45,45,45, 0.5);
-    color: #ffffff;
+    // background: rgba(45,45,45, 0.5);
+    // color: #ffffff;
 
     &__profile{
       // background-color: cadetblue;
@@ -85,11 +85,13 @@
         left: 150px;
       }
       &--introduction{
+        border: 1px solid #000; 
+        margin-left: 30px;
         padding: 10px;
       }
     }
     &__movie_ranking{
-      border: 1px solid #ddd;
+      border: 1px solid #000; 
       // text-align: center;
       // background-color: deeppink;
       .ranking_area{
@@ -102,21 +104,21 @@
       margin-bottom: 50px;
     }
     &__review{
-      border: 1px solid #ddd;
+      border: 1px solid #000; 
       // background-color: coral;
       // height: 50vh;
       @include side_scroll_list();
       margin-bottom: 50px;
     }
     &__message{
-      border: 1px solid #ddd;
+      border: 1px solid #000; 
       // background-color: darkcyan;
       // height: 50vh;
       @include side_scroll_list();
       margin-bottom: 50px;
     }
     &__friends{
-      border: 1px solid #ddd;
+      border: 1px solid #000; 
       // background-color: darkorchid;
       // height: 100%;
       &--area{
@@ -127,7 +129,7 @@
           margin: 15px;
           img {
             @include img_border_radius();
-            @include contentd_img(200px);
+            @include contentd_img(150px);
           }
         }
       }
