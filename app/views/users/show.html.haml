@@ -38,6 +38,8 @@
       %p #{current_user.name}
       .my_content__profile--introduction
         = current_user.introduction
+      = link_to edit_user_path(current_user) do
+        = icon('fas', 'cog', class: 'icon')
     .my_content__movie_ranking{ id: "movie_ranking" }
       %header
         %h2
@@ -63,15 +65,18 @@
       %header
         %h2
           review
+        %h2
+          .new_btm
+            = link_to new_post_path, class: "header__right--btn" do
+              新規投稿
       %ul
-        %li
-          %img(src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
-        %li
-          %img(src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
-        %li
-          %img(src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
-        %li
-          %img(src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
+        - @posts.each do |post|
+          %li
+            .li_content
+              %img(src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
+              %p
+                = link_to  post_path(post.id), class: "content__right__top--title" do
+                  = post.title
 
     .my_content__message{ id: "message" }
       %header
