@@ -1,2 +1,0 @@
-class MyRanking < ApplicationRecord
-end
