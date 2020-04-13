@@ -1,0 +1,2 @@
+class MyRankingsController < ApplicationController
+end
