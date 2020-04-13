@@ -2,11 +2,27 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title ChatSpace
+    %title MovieRoom
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    = render 'layouts/notifications'
-    = yield
-    = render 'layouts/footer'
+    %header.header
+      .header__title
+        = link_to root_path, class: "header__title--text" do
+          Movie Room
+      .header__right
+        - if user_signed_in?
+          = link_to user_path(current_user), class: "header__right--btn" do
+            = current_user.name
+          = link_to new_post_path, class: "header__right--btn" do
+            レビュー投稿
+          = link_to destroy_user_session_path, class: "header__right--btn" do
+            ログアウト
+        - else
+          = link_to new_user_session_path, class: "header__right--btn" do
+            ログイン
+    .contents
+      = render 'layouts/notifications'
+      = yield
+      = render 'layouts/footer'
