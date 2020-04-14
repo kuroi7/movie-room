@@ -12,7 +12,7 @@
       %th 
         編集
       %th 
-        削除      
+        削除
   %tbody.table-sortable
     - @myRanking.each do |myrank|
       %tr.item{"data-model-name": myrank.class.name.underscore, "data-update-url": my_ranking_sort_path(myrank)}

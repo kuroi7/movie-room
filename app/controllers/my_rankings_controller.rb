@@ -40,7 +40,7 @@ class MyRankingsController < ApplicationController
 
   private
   def my_ranking_params
-    params.require(:my_ranking).permit(:title, :content, :row_order_position)
+    params.require(:my_ranking).permit(:title, :content, :row_order_position).merge(user_id: current_user.id)
   end
 
 end
