@@ -1,0 +1,8 @@
+.content__title
+  新規登録
+
+.form
+  = form_for [@myRanking] do |f|
+    = f.text_field :title, class: 'form__title', placeholder: '映画タイトル'
+    = f.text_area :content, class: 'form__text', placeholder: '感想'
+    = f.submit '投稿する', class: 'form__btn'
