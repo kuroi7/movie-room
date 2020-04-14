@@ -41,33 +41,25 @@
       = link_to edit_user_path(current_user) do
         = icon('fas', 'cog', class: 'icon')
     .my_content__movie_ranking{ id: "movie_ranking" }
-      %header
-        %h2
-          my_movie_ranking
-        .ranking_area
-          %ul
+      %h2
+        my_movie_ranking
+        .new_btm
+          = link_to my_rankings_path , class: "new_btn" do
+            一覧画面へ移動
+      .ranking_area
+        %ul
+          - current_user.MyRankings.each.with_index(1) do |myrank, i|
             %li
               .rank
-                １位：華麗なるギャツビー
-            %li
-              .rank
-                ２位：殺人の追憶
-            %li
-              .rank
-                ３位：ジュラシックパーク
-            %li
-              .rank
-                ４位：ピーターラビット
-            %li
-              .rank
-                ５位：ロード・オブ・ザ・リング
+                = link_to myrank, class: "new_btn" do
+                  #{i}位 #{myrank.title} 
     .my_content__review{ id: "review" }
       %header
         %h2
           review
         %h2
           .new_btm
-            = link_to new_post_path, class: "header__right--btn" do
+            = link_to new_post_path, class: "new_btn" do
               新規投稿
       %ul
         - @posts.each do |post|
