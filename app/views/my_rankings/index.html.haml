@@ -1,0 +1,30 @@
+%p#notice= notice
+%h1 MyMovieRanking
+%table
+  %thead
+    %tr
+      %th 
+        title
+      %th 
+        Content
+      %th 
+        表示
+      %th 
+        編集
+      %th 
+        削除
+  %tbody.table-sortable
+    - @myRanking.each do |myrank|
+      %tr.item{"data-model-name": myrank.class.name.underscore, "data-update-url": my_ranking_sort_path(myrank)}
+        %td
+          = myrank.title
+        %td
+          = myrank.content
+        %td
+          = link_to 'Show', myrank
+        %td
+          = link_to 'Edit', edit_my_ranking_path(myrank)
+        %td
+          = link_to 'Destroy', myrank, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to '新規登録', new_my_ranking_path
