@@ -44,7 +44,7 @@
       %h2
         my_movie_ranking
         .new_btm
-          = link_to my_rankings_path , class: "new_btn" do
+          = link_to my_rankings_path , class: "btn btn-primary" do
             一覧画面へ移動
       .ranking_area
         %ul
@@ -59,7 +59,7 @@
           review
         %h2
           .new_btm
-            = link_to new_post_path, class: "new_btn" do
+            = link_to new_post_path, class: "btn btn-primary" do
               新規投稿
       %ul
         - @posts.each do |post|
@@ -107,5 +107,3 @@
           %img(src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
         .friend_img
           %img(src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
-
-
