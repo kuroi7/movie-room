@@ -1,0 +1,13 @@
+.container
+  .row
+    %aside.span4
+      %section
+        = render 'users/stats'
+        %h2= @title
+        - if @users.any?
+          - @users.each do |user|
+            .user_avatars
+              %span
+                %img(src = "#{user.profile_img}" class="img-thumbnail" width="200")
+              %br/
+              = link_to user.name ,user_path(user)

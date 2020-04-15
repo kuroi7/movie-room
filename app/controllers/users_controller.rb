@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
+  def index
+    @users = User.all
+  end
+
   def show
-    @user = User.find(current_user)
+    @user = User.find(params[:id])
     @posts = @user.posts
   end
 
@@ -13,6 +17,20 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def following
+    @title = "フォロー"
+    @user = User.find(params[:id])
+    @users = @user.followings
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "フォロワー"
+    @user = User.find(params[:id])
+    @users = @user.followers
+    render 'show_follow'
   end
 
   private

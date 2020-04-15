@@ -1,31 +1,4 @@
 .my_profile
-  -# .my_sidebar
-  -#   .my_sidebar__Wrap
-  -#     %h1
-  -#       %img
-  -#     .mainnav
-  -#       %p.menuWrap
-  -#       .panel
-  -#         %ul
-  -#           %li
-  -#             = link_to edit_user_path(current_user) do
-  -#               = icon('fas', 'cog', class: 'icon')
-  -#           %li
-  -#             = link_to "#profile" do
-  -#               profile
-  -#           %li
-  -#             = link_to "#movie_ranking" do
-  -#               movie_ranking
-  -#           %li
-  -#             = link_to "#review" do
-  -#               review
-  -#           %li
-  -#             = link_to "#message" do
-  -#               message
-  -#           %li
-  -#             = link_to "#friend" do
-  -#               friend
-
   .my_content
     %p
       %img
@@ -34,12 +7,26 @@
         %h2
           profile
           %span
-      %img(src="#{current_user.profile_img}" alt="profile_image")
-      %p #{current_user.name}
+      %img(src="#{@user.profile_img}" alt="profile_image" class="img-thumbnail")
+      %p #{@user.name}
       .my_content__profile--introduction
-        = current_user.introduction
+        = @user.introduction
       = link_to edit_user_path(current_user) do
         = icon('fas', 'cog', class: 'icon')
+
+    .my_content__friends{ id: "friend" }
+      %header
+        %h2
+          friend
+        = link_to users_path do
+          index
+        %br
+        %span.follow-wrapper{:id => "user_#{@user.id}"}
+        = render 'follow_form', user: @user if signed_in?
+        %h4
+        = render 'users/stats'
+        %br
+      .my_content__friends--area
     .my_content__movie_ranking{ id: "movie_ranking" }
       %h2
         my_movie_ranking
@@ -48,7 +35,7 @@
             一覧画面へ移動
       .ranking_area
         %ul
-          - current_user.MyRankings.each.with_index(1) do |myrank, i|
+          - @user.MyRankings.each.with_index(1) do |myrank, i|
             %li
               .rank
                 = link_to myrank, class: "new_btn" do
@@ -76,7 +63,7 @@
         = link_to messages_path do
           message
         %ul
-          - current_user.groups.each do |group|
+          - @user.groups.each do |group|
             %li
               .li_content
                 %img(src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
@@ -85,25 +72,3 @@
                     = group.name
                   %br
                   = group.show_last_message
-
-    .my_content__friends{ id: "friend" }
-      %header
-        %h2
-          friend
-      .my_content__friends--area
-        .friend_img
-          %img(src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
-        .friend_img
-          %img(src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
-        .friend_img
-          %img(src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
-        .friend_img
-          %img(src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
-        .friend_img
-          %img(src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
-        .friend_img
-          %img(src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
-        .friend_img
-          %img(src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
-        .friend_img
-          %img(src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
