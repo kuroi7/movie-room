@@ -2,12 +2,8 @@ class MoviesController < ApplicationController
 
   def search
     @search_term = params[:looking_for]
-    movie_results = Movie.search(@search_term)
-    if @search_term
-      @movie_results = movie_results["results"]
-    else
-      @movie_results = 
-    end
+    movie = @search_term ? Movie.search(@search_term) : Movie.index
+    @movie_results = movie["results"]
   end
   
   def show

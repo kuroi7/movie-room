@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   get 'movies/search'
-
   get 'movies/show'
 
   devise_for :users

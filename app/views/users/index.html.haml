@@ -1,5 +1,10 @@
-- @users.each do |user|
-  = link_to "/users/#{user.id}" do
-    %img(src="#{user.profile_img}" alt="profile_image" class="img-thumbnail" width="200px")
-    = user.name
-    %br
+-# = render "app/views/movies/movie_list"
+
+%table.table
+  %thead
+    - @users.each do |user|
+      %tr
+        = link_to "/users/#{user.id}" do
+          %img(src="#{user.profile_img}" alt="profile_image" class="img-thumbnail" width="200px")
+      %tr
+        = user.name

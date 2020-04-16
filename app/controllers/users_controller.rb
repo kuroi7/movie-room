@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   def index
+    # render template: "movies/search"
+
     @users = User.all
   end
 

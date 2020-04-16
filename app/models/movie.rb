@@ -5,6 +5,11 @@ class Movie < ApplicationRecord
   default_params api_key: '4d53cee11e3a0a4c6a08ae27d63058c4', language: 'ja-JP' #共通パラメタ                 
   format :json
 
+  def self.index 
+    base_uri 'https://api.themoviedb.org/3/movie/now_playing'
+    get("", query: {}) # {}の中身はパラメタ
+  end
+
   # キーワードによる検索機能
   # https://developers.themoviedb.org/3/search/search-keywordsに参照
   def self.search term

@@ -11,7 +11,7 @@
   - else
     %p
       [#{@search_term}]の検索結果
-    %table{:border => "1"}
+    %table.table
       %tr
         %th ポスター
         %th タイトル
@@ -21,6 +21,7 @@
         %tr
           %td
             %img(src= "https://image.tmdb.org/t/p/w200#{movie["poster_path"]}" alt= "poster")
+              = link_to movie["title"], action: 'show', id: "#{movie["id"]}"
           %td
             = link_to movie["title"], action: 'show', id: "#{movie["id"]}"
           %td
