@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'movies/search'
+
+  get 'movies/show'
+
   devise_for :users
 
   root "users#index"
@@ -16,4 +20,5 @@ Rails.application.routes.draw do
     put :sort
   end
   resources :relationships
+  resources :movies
 end
