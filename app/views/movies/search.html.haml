@@ -1,0 +1,29 @@
+%h1 映画検索
+%div
+  = form_tag(movies_search_path, method: :get) do
+    = search_field_tag :looking_for, nil, placeholder: 'Movie Title...'
+    = submit_tag '検索'
+
+%div
+  - if @movie_results.blank?
+    %p
+      [#{@search_term}]と一致する情報が見つかりませんでした
+  - else
+    %p
+      [#{@search_term}]の検索結果
+    %table{:border => "1"}
+      %tr
+        %th ポスター
+        %th タイトル
+        %th 上映日
+        %th あらすじ
+      - @movie_results.each do |movie|
+        %tr
+          %td
+            %img(src= "https://image.tmdb.org/t/p/w200#{movie["poster_path"]}" alt= "poster")
+          %td
+            = link_to movie["title"], action: 'show', id: "#{movie["id"]}"
+          %td
+            = movie["release_date"]
+          %td
+            = movie["overview"]

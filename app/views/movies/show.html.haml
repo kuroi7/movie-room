@@ -1,0 +1,21 @@
+%h1= @movie_info['title']
+%p
+  %strong 上映日：
+  = @movie_info['release_date']
+%p
+  %strong 上映時間：
+  = @movie_info['runtime']
+  分
+%p
+  %strong ジャンル：
+  - @movie_info['genres'].each do |genre|
+    - if genre == @movie_info['genres'].last
+      %span= genre['name']
+    - else
+      %span
+        = genre['name']
+        、
+%p
+  %strong ストーリ：
+  = @movie_info["overview"]
+= image_tag("https://image.tmdb.org/t/p/original#{@movie_info['poster_path']}", :alt => 'poster')
