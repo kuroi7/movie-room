@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
   def index
-    # render template: "movies/search"
-
-    @users = User.all
+    # 自分以外のユーザーを取得。全ユーザー取得なら User.all
+    @users = User.where.not(id: current_user.id)
   end
 
   def show
