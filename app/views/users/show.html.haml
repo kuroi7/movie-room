@@ -48,7 +48,7 @@
             = link_to movies_search_path, class: "btn btn-primary" do
               レビューする
       %ul
-        - @posts.first(5).each do |post|
+        - @posts.last(5).each do |post|
           %li
             .li_content
               %img(src= "https://image.tmdb.org/t/p/w200/#{post.poster_path}" alt= "poster")

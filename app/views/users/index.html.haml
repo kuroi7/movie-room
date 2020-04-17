@@ -36,4 +36,9 @@
         = link_to "/users/#{user.id}" do
           %img(src="#{user.profile_img}" alt="profile_image" class="img-thumbnail" width="200px")
         %br
-          = user.name
+          = "名前：#{user.name}"
+        %p
+          マイランキング
+        - MyRanking.select{|mr| mr.user_id == user.id}.each.with_index(1) do |myrank|
+          = myrank.title
+
