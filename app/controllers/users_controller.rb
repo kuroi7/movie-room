@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
   def index
+    @search_term = params[:looking_for]
+    movie = @search_term ? Movie.search(@search_term) : Movie.index
+    @movie_results = movie["results"]
     # 自分以外のユーザーを取得。全ユーザー取得なら User.all
     @users = User.where.not(id: current_user.id)
   end

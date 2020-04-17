@@ -13,15 +13,19 @@
           Movie Room
       .header__right
         - if user_signed_in?
+          = link_to movies_search_path, class: "header__right--btn" do
+            映画を探す
+            = icon('fa', 'search')
           = link_to user_path(current_user), class: "header__right--btn" do
             = current_user.name
-          = link_to new_post_path, class: "header__right--btn" do
-            レビュー投稿
-          = link_to destroy_user_session_path, class: "header__right--btn" do
+            = icon('fa', 'user-circle')
+          = link_to destroy_user_session_path, method: :delete, class: "header__right--btn" do
             ログアウト
+            = icon('fa', 'sign-out-alt')
         - else
           = link_to new_user_session_path, class: "header__right--btn" do
             ログイン
+            = icon('fa', 'sign-in-alt')
     .contents
       = render 'layouts/notifications'
       = yield
