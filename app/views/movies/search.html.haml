@@ -21,7 +21,7 @@
         %tr
           %td
             %img(src= "https://image.tmdb.org/t/p/w200#{movie["poster_path"]}" alt= "poster")
-              = link_to movie["title"], action: 'show', id: "#{movie["id"]}"
+              -# = link_to movie["title"], action: 'show', id: "#{movie["id"]}"
           %td
             = link_to movie["title"], action: 'show', id: "#{movie["id"]}"
           %td

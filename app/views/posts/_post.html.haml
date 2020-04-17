@@ -1,6 +1,7 @@
 .content
   .content__left
     .content__left--image
+      %img(src= "https://image.tmdb.org/t/p/w200/#{post.poster_path}" alt= "poster")
   .content__right
     .content__right__top
       = link_to  post_path(post.id), class: "content__right__top--title" do
