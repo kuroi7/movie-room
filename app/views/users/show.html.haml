@@ -46,16 +46,18 @@
           review
         %h2
           .new_btm
-            = link_to new_post_path, class: "btn btn-primary" do
-              新規投稿
+            = link_to movies_search_path, class: "btn btn-primary" do
+              レビューする
       %ul
         - @posts.each do |post|
           %li
             .li_content
-              %img(src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
+              %img(src= "https://image.tmdb.org/t/p/w200/#{post.poster_path}" alt= "poster")
               %p
                 = link_to  post_path(post.id), class: "content__right__top--title" do
                   = post.title
+      = link_to posts_path, class: "btn btn-primary" do
+        レビュー一覧
 
     .my_content__message{ id: "message" }
       %header

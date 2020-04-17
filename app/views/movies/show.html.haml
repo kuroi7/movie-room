@@ -21,3 +21,6 @@
       %strong ストーリ：
       = @movie_info["overview"]
       %img(src = "https://image.tmdb.org/t/p/original#{@movie_info["poster_path"]}" alt = "poster" class="img-fluid")
+.new_btm
+  = link_to new_post_path(id:@movie_info["id"],title:@movie_info["title"],poster_path:@movie_info["poster_path"]), class: "btn btn-primary" do
+    レビューする

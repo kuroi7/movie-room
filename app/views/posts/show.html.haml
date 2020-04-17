@@ -1,3 +1,8 @@
+.container
+  %img(src= "https://image.tmdb.org/t/p/w300/#{@post.poster_path}" alt= "poster")
+- if @post.movie_id?
+  = link_to movie_path(@post.movie_id) do
+    詳細情報を見に行く
 .postTitle
   = @post.title
 .postDate

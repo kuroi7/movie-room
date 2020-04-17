@@ -19,5 +19,5 @@ Rails.application.routes.draw do
     put :sort
   end
   resources :relationships
-  resources :movies
+  resources :movies, only: [:show, :search]
 end
