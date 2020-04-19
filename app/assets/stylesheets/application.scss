@@ -1,12 +1,34 @@
+// アバターのイメージ加工。
+@mixin avater_img($size:200px) {
+  img {
+    width:  $size;
+    height: $size;
+    background-color: #7a7c00;
+    object-fit: cover;
+    border-radius: 50%;
+    background-position: center center;
+  }
+}
+.header__title--text{
+  img{
+    height: 40px;
+    width: 40px;
+  }
+}
+
+@import "reset";
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "reset";
-@import "config/colors";
-@import "modules/messages";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "config/colors";
+@import "modules/top_header";
+@import "modules/posts";
+@import "modules/messages";
 @import "modules/user";
 @import "modules/flash";
 @import "modules/my_page";
 @import "modules/group";
 @import "modules/posts";
+
+

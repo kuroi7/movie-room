@@ -10,6 +10,7 @@
     %header.header
       .header__title
         = link_to root_path, class: "header__title--text" do
+          = image_tag 'logo.png'
           Movie Room
       .header__right
         - if user_signed_in?
@@ -26,6 +27,8 @@
           = link_to new_user_session_path, class: "header__right--btn" do
             ログイン
             = icon('fa', 'sign-in-alt')
+    - if request.path == '/'
+      = render 'layouts/header_contents'
     .contents
       = render 'layouts/notifications'
       = yield

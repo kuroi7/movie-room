@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200417055850) do
+ActiveRecord::Schema.define(version: 20200417135912) do
 
   create_table "group_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "group_id"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20200417055850) do
     t.integer  "user_id"
     t.text     "poster_path", limit: 65535
     t.string   "movie_id"
+    t.float    "rate",        limit: 24
   end
 
   create_table "relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

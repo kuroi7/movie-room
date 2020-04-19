@@ -3,11 +3,13 @@
 - if @post.movie_id?
   = link_to movie_path(@post.movie_id) do
     詳細情報を見に行く
+
 .postTitle
   = @post.title
 .postDate
   = @post.created_at
 .postAuthor
+  %div{id: "star-rate-#{@post.id}"}
 .postManage
   - if user_signed_in? && current_user.id == @post.user_id
     =link_to edit_post_path(@post.id), class: "postManage__edit" do
@@ -16,3 +18,15 @@
       削除
 .postText
   = simple_format @post.content 
+
+
+:javascript
+  $('#star-rate-#{@post.id}').raty({
+    size: 36,
+    starOff:  '#{asset_path('star-off.png')}',
+    starOn : '#{asset_path('star-on.png')}',
+    starHalf: '#{asset_path('star-half.png')}',
+    half: true,
+    readOnly: true,
+    score: #{@post.rate},
+  });

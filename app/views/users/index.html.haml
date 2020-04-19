@@ -1,27 +1,17 @@
-%h1 タイムライン
--# %div
--#   = form_tag(movies_search_path, method: :get) do
--#     = search_field_tag :looking_for, nil, placeholder: 'Movie Title...'
--#     = submit_tag '検索'
-%h2 上映中の映画情報
+%h1 
+  上映中の映画情報
 %div
-  - if @movie_results.blank?
-    %p
-      [#{@search_term}]と一致する情報が見つかりませんでした
-  - else
-    -# %p
-      -# [#{@search_term}]の検索結果
-    .row
-      .col-xs-12
-        - @movie_results.each do |movie|
-          .col-xs-3
-            = link_to movie_path(movie["id"]) do
-              %img(src= "https://image.tmdb.org/t/p/w200#{movie["poster_path"]}" alt= "poster")
-              %br
-              = movie["title"]
-            -# = link_to movie["title"], controller = '%br' ,action: 'show', id: "#{movie["id"]}"
+  .row
+    .col-xs-12
+      - @movie_results.each do |movie|
+        .col-xs-3
+          = link_to movie_path(movie["id"]) do
+            %img(src= "https://image.tmdb.org/t/p/w200#{movie["poster_path"]}" alt= "poster")
             %br
-            = "リリース日：#{movie["release_date"]}"
+            = movie["title"]
+          -# = link_to movie["title"], controller = '%br' ,action: 'show', id: "#{movie["id"]}"
+          %br
+          = "リリース日：#{movie["release_date"]}"
 %br
 %br
 %br
@@ -29,16 +19,17 @@
 %br
 
 %h2 ユーザー情報
-.row
-  .col-xs-12
-    - @users.each do |user|
-      .col-xs-3
-        = link_to "/users/#{user.id}" do
-          %img(src="#{user.profile_img}" alt="profile_image" class="img-thumbnail" width="200px")
-        %br
-          = "名前：#{user.name}"
-        %p
-          マイランキング
-        - MyRanking.select{|mr| mr.user_id == user.id}.each.with_index(1) do |myrank|
-          = myrank.title
+.index_user_fiield
+  .row
+    .col-xs-12
+      - @users.each do |user|
+        .col-xs-3
+          = link_to "/users/#{user.id}" do
+            %img(src="#{user.profile_img}" alt="profile_image" class="img-thumbnail" width="200px")
+          %br
+            = "名前：#{user.name}"
+          %p
+            My Movie Ranking
+          - MyRanking.select{|mr| mr.user_id == user.id}.each.with_index(1) do |myrank|
+            = myrank.title
 
