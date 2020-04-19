@@ -142,7 +142,6 @@
 
   h2 {
     margin-bottom: 10px;
-    color: #d65f4c;
     font-size: 14px;
   }
 
@@ -157,4 +156,7 @@
     padding: 0;
     font-size: 13px;
   }
+}
+.index_user_fiield{
+  @include avater_img();
 }

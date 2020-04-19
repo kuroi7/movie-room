@@ -1,0 +1,29 @@
+.header_contents{
+  background-image: url(/assets/projecter.jpeg);
+  background-color:rgba(255, 255, 255, 0.3);
+  background-blend-mode:lighten;
+  object-fit: cover;
+  background-position: center center;
+
+  .top_header{
+    height: 50vh;
+    width: 100%;
+
+    display: flex;
+
+    &__logo{
+      line-height: 50vh;
+      padding-left: 200px;
+      img{
+        height: 300px;
+        width: 300px;
+      }
+    }
+    &__contents{
+      font-size: 3rem;
+      margin: 50px 0px 10px 100px;
+      color: #ffffff;
+      // background-color: chartreuse;
+    }
+  }
+}

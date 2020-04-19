@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   end
 
   def show    
-    @post = Post.find(params[:id])
+    @post = Post.order(updated_at: "DESC").find(params[:id])
   end
 
   def edit
@@ -38,6 +38,6 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :content, :poster_path, :movie_id).merge(user_id: current_user.id)
+    params.require(:post).permit(:title, :content, :poster_path, :movie_id, :rate).merge(user_id: current_user.id)
   end
 end

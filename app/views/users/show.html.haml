@@ -15,18 +15,16 @@
         = icon('fas', 'cog', class: 'icon')
 
     .my_content__friends{ id: "friend" }
-      %header
-        %h2
-          friend
-        = link_to users_path do
-          index
-        %br
-        %span.follow-wrapper{:id => "user_#{@user.id}"}
+      %h2
+        friend
+      = link_to users_path do
+        index
+      %br
+      %span.follow-wrapper{:id => "user_#{@user.id}"}
         = render 'follow_form', user: @user if signed_in?
         %h4
         = render 'users/stats'
-        %br
-      .my_content__friends--area
+
     .my_content__movie_ranking{ id: "movie_ranking" }
       %h2
         my_movie_ranking
@@ -40,44 +38,56 @@
               .rank
                 = link_to myrank, class: "new_btn" do
                   #{i}位 #{myrank.title} 
+
+
     .my_content__review{ id: "review" }
-      %header
-        %h2
-          レビュー
-          .new_btm
-            = link_to movies_search_path, class: "btn btn-primary" do
-              レビューする
+      %h2
+        レビュー
+        .new_btm
+          = link_to movies_search_path, class: "btn btn-primary" do
+            レビューする
       %ul
         - @posts.last(5).each do |post|
           %li
             .li_content
-              %img(src= "https://image.tmdb.org/t/p/w200/#{post.poster_path}" alt= "poster")
-              %p
-                = link_to  post_path(post.id), class: "content__right__top--title" do
-                  = post.title
+              = link_to  post_path(post.id), class: "content__right__top--title" do
+                %img(src= "https://image.tmdb.org/t/p/w200/#{post.poster_path}" alt= "poster")
+                %p
+                %div{id: "star-rate-#{post.id}"}
+                %p
+                = post.title
+                :javascript
+                  $('#star-rate-#{post.id}').raty({
+                    size: 36,
+                    starOff:  '#{asset_path('star-off.png')}',
+                    starOn : '#{asset_path('star-on.png')}',
+                    starHalf: '#{asset_path('star-half.png')}',
+                    half: true,
+                    readOnly: true,
+                    score: #{post.rate},
+                  });
       = link_to posts_path, class: "btn btn-primary" do
         すべてのレビューを見る
 
     .my_content__message{ id: "message" }
-      %header
-        %h2
-        = link_to new_group_path ,class: "btn btn-primary" do
-          メッセージグループを作成する
-          = icon('far', 'edit', class: 'side-header__box__btn--edit')
-        %ul
-          - @user.groups.each do |group|
-            %li
-              .li_content.card
-                -# %img(src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
-                .card-body
-                  グループ名：
-                  = link_to group_messages_path(group) do
-                    = group.name
-                  %p.card-text
-                    最終メッセージ：
-                    = group.show_last_message
-                  %p.card-text
-                    メンバー
-                  - group.users.each do |user|
-                    %img(src="#{user.profile_img}" alt="profile_image" class="img-thumbnail")
-                    
+      %h2
+        メッセージする
+      = link_to new_group_path ,class: "btn btn-primary" do
+        メッセージグループを作成する
+        = icon('far', 'edit', class: 'side-header__box__btn--edit')
+      %ul
+        - @user.groups.each do |group|
+          %li
+            .li_content.card
+              -# %img(src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="movie review")
+              .card-body
+                グループ名：
+                = link_to group_messages_path(group) do
+                  = group.name
+                %p.card-text
+                  最終メッセージ：
+                  = group.show_last_message
+                %p.card-text
+                  メンバー
+                - group.users.each do |user|
+                  %img(src="#{user.profile_img}" alt="profile_image" class="img-thumbnail")
