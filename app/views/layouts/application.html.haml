@@ -25,7 +25,9 @@
             = icon('fa', 'sign-out-alt')
         - else
           -# - if devise_mapping.registerable? && controller_name != 'registrations'
-          = link_to "ユーザー登録", new_registration_path(resource_name), class: 'header__right--btn'
+          = link_to new_registration_path(resource_name), class: 'header__right--btn' do
+            ユーザー登録
+            = icon('fa', 'user-plus')
           = link_to new_user_session_path, class: "header__right--btn" do
             ログイン
             = icon('fa', 'sign-in-alt')
