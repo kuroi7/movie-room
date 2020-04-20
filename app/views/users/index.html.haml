@@ -1,6 +1,6 @@
 %h1 
   上映中の映画情報
-%div
+.main_content
   .row
     .col-xs-12
       - @movie_results.each do |movie|
@@ -12,24 +12,19 @@
           -# = link_to movie["title"], controller = '%br' ,action: 'show', id: "#{movie["id"]}"
           %br
           = "リリース日：#{movie["release_date"]}"
-%br
-%br
-%br
-%br
-%br
-
-%h2 ユーザー情報
-.index_user_fiield
-  .row
-    .col-xs-12
-      - @users.each do |user|
-        .col-xs-3
-          = link_to "/users/#{user.id}" do
-            %img(src="#{user.profile_img}" alt="profile_image" class="img-thumbnail" width="200px")
-          %br
-            = "名前：#{user.name}"
-          %p
-            My Movie Ranking
-          - MyRanking.select{|mr| mr.user_id == user.id}.each.with_index(1) do |myrank|
-            = myrank.title
+  %hr.accessory
+  %h2 ユーザー情報
+  .user_fiield
+    .row
+      .col-xs-12
+        - @users.each do |user|
+          .col-xs-3
+            = link_to "/users/#{user.id}" do
+              %img(src="#{user.profile_img}" alt="profile_image" class="img-thumbnail")
+            %br
+              = "名前：#{user.name}"
+            %p
+              My Movie Ranking
+            - MyRanking.select{|mr| mr.user_id == user.id}.each.with_index(1) do |myrank|
+              = myrank.title
 

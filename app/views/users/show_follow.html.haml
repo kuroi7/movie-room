@@ -4,6 +4,7 @@
       %section
         = render 'users/stats'
         %h2= @title
+      .user_fiield
         - if @users.any?
           - @users.each do |user|
             .user_avatars

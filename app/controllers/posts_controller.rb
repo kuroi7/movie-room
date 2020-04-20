@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.includes(:user)
+    
+    @posts = Post.where(user_id: params[:user]).includes(:user)
   end
 
   def new

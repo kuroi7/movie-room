@@ -24,12 +24,24 @@
             ログアウト
             = icon('fa', 'sign-out-alt')
         - else
+          -# - if devise_mapping.registerable? && controller_name != 'registrations'
+          = link_to "ユーザー登録", new_registration_path(resource_name), class: 'header__right--btn'
           = link_to new_user_session_path, class: "header__right--btn" do
             ログイン
             = icon('fa', 'sign-in-alt')
-    - if request.path == '/'
-      = render 'layouts/header_contents'
-    .contents
+
+
+    - if request.path == new_user_session_path 
       = render 'layouts/notifications'
       = yield
       = render 'layouts/footer'
+    - elsif request.path == '/' 
+      = render 'layouts/notifications'
+      = render 'layouts/header_contents'
+      = yield
+      = render 'layouts/footer'
+    - else
+      .contents
+        = render 'layouts/notifications'
+        = yield
+        = render 'layouts/footer'
