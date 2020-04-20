@@ -11,12 +11,13 @@
       %p #{@user.name}
       .my_content__profile--introduction
         = @user.introduction
-      = link_to edit_user_path(current_user) do
-        = icon('fas', 'cog', class: 'icon')
+      - if @user.id == current_user.id 
+        = link_to edit_user_path(current_user) do
+          プロフィールを編集する
+          = icon('fas', 'cog', class: 'icon')
 
     .my_content__friends{ id: "friend" }
       %h2
-        friend
       %span.follow-wrapper{:id => "user_#{@user.id}"}
         = render 'follow_form', user: @user if signed_in?
         %h4
@@ -24,10 +25,11 @@
 
     .my_content__movie_ranking{ id: "movie_ranking" }
       %h2
-        my_movie_ranking
-        .new_btm
-          = link_to my_rankings_path , class: "btn btn-primary" do
-            マイムービーランキングを設定する
+        マイムービーランキング
+        - if @user.id == current_user.id 
+          .btn_area
+            = link_to my_rankings_path , class: "btn btn-primary" do
+              マイムービーランキングを設定する
       .ranking_area
         %ul
           - @user.MyRankings.each.with_index(1) do |myrank, i|
@@ -40,12 +42,13 @@
     .my_content__review{ id: "review" }
       %h2
         レビュー
-      .new_btm
-        - if @user.id == current_user.id 
-          = link_to movies_search_path, class: "btn btn-primary" do
-            レビューする
+      .btn_area
         = link_to posts_path(user: @user.id), class: "btn btn-primary" do
           すべてのレビューを見る
+        - if @user.id == current_user.id 
+          -# .new-review-btn
+          = link_to movies_search_path, class: "btn btn-primary new-review-btn" do
+            レビューする
       %ul
         - @posts.last(5).each do |post|
           %li

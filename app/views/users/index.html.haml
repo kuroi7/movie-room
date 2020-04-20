@@ -23,8 +23,9 @@
               %img(src="#{user.profile_img}" alt="profile_image" class="img-thumbnail")
             %br
               = "名前：#{user.name}"
-            %p
-              My Movie Ranking
-            - MyRanking.select{|mr| mr.user_id == user.id}.each.with_index(1) do |myrank|
-              = myrank.title
+            .my_content__movie_ranking{ id: "movie_ranking" }
+              .ranking_area
+                My Movie Ranking
+                - MyRanking.select{|mr| mr.user_id == user.id}.each.with_index(1) do |myrank|
+                  = myrank.title
 
