@@ -38,6 +38,7 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'sqlite3'
 end
 
 group :development do
@@ -63,7 +64,6 @@ gem 'ranked-model'
 gem 'bootstrap-sass'
 gem 'httparty', '0.13.5'
 
-gem 'sqlite3'
 group :production do
 
   gem 'pg'
