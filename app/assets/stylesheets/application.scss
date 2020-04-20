@@ -1,3 +1,16 @@
+.contents{
+  height: calc(100vh - 86px);
+}
+.row{
+  width: 100%;
+  col-xs-12{
+    width: 100%;
+  }
+}
+.text-area-size{
+  width: 100%;
+  height: 300px;
+}
 // アバターのイメージ加工。
 @mixin avater_img($size:200px) {
   img {
@@ -22,6 +35,7 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "config/colors";
+@import "modules/hr_accessory";
 @import "modules/top_header";
 @import "modules/posts";
 @import "modules/messages";
@@ -30,5 +44,5 @@
 @import "modules/my_page";
 @import "modules/group";
 @import "modules/posts";
-
+@import "modules/movies";
 

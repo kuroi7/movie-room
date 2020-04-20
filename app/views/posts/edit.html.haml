@@ -4,5 +4,10 @@
 .form
   = form_for [@post] do |f|
     = f.text_field :title, class: 'form__title', placeholder: 'タイトル'
-    = f.text_area :content, class: 'form__text', placeholder: 'ブログ本文'
+    #star
+      = f.label :rate,'評価'
+      = f.hidden_field :rate, id: :review_star
+    = f.text_area :content, class: 'form__text text-area-size', placeholder: 'ブログ本文'
     = f.submit '投稿する', class: 'form__btn'
+
+= render "starrate"
