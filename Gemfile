@@ -63,6 +63,7 @@ gem 'jquery-ui-rails'
 gem 'ranked-model'
 gem 'bootstrap-sass'
 gem 'httparty', '0.13.5'
+gem 'fog-aws'
 
 group :production do
 
