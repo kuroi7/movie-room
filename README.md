@@ -31,7 +31,7 @@ movieroom-bucket
 * 多対多の関係を持ったテーブル構成
 
 
-# DEMO(gifで動画や写真を貼って、ビューのイメージを掴んでもらいます)
+# DEMO
 * ログイン画面
 ![ログイン画面](movie_room_login.jpg)
 
@@ -44,7 +44,6 @@ movieroom-bucket
 * 映画検索
 ![映画検索画面](movie_room_movie_search.jpg)
 
-⇒特に、デプロイがまだできていない場合はDEMOをつけることで見た目を企業側に伝えることができます。
 
 # 工夫したポイント
 映画APIの取得方法
