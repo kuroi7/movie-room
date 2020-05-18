@@ -33,16 +33,16 @@ movieroom-bucket
 
 # DEMO
 * ログイン画面
-![ログイン画面](movie_room_login.jpg)
+![ログイン画面](app/assets/images/movie_room_login.jpg)
 
 * トップ画面
-![映画検索画面](movie_room_top.jpg)
+![映画検索画面](app/assets/images/movie_room_top.jpg)
 
 * マイページ
-![映画検索画面](movie_room_my_profile.png)
+![映画検索画面](app/assets/images/movie_room_my_profile.png)
 
 * 映画検索
-![映画検索画面](movie_room_movie_search.jpg)
+![映画検索画面](app/assets/images/movie_room_movie_search.jpg)
 
 
 # 工夫したポイント
