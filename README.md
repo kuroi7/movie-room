@@ -15,7 +15,7 @@ Movie Room
 https://movie-room-app.herokuapp.com/
 
 テストアカウント＆ID  
-ID：movie@samle.com  
+ID：movie@sample.com  
 Pass：testtest1!
 
 バケット名  
