@@ -33,8 +33,16 @@ movieroom-bucket
 
 # DEMO(gifで動画や写真を貼って、ビューのイメージを掴んでもらいます)
 * ログイン画面
+![ログイン画面](movie_room_login.jpg)
+
 * トップ画面
+![映画検索画面](movie_room_top.jpg)
+
 * マイページ
+![映画検索画面](movie_room_my_profile.png)
+
+* 映画検索
+![映画検索画面](movie_room_movie_search.jpg)
 
 ⇒特に、デプロイがまだできていない場合はDEMOをつけることで見た目を企業側に伝えることができます。
 
