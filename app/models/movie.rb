@@ -2,7 +2,7 @@ class Movie < ApplicationRecord
   include HTTParty
 
   # default_options.update(verify: false) # disable SSL verification(必要に応じて)
-  default_params api_key: '4d53cee11e3a0a4c6a08ae27d63058c4', language: 'ja-JP' #共通パラメタ                 
+  default_params api_key: Rails.application.secrets.tmdb_api_key, language: 'ja-JP' #共通パラメタ
   format :json
 
   def self.index 
