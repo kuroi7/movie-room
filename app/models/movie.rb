@@ -3,7 +3,6 @@ class Movie < ApplicationRecord
 
   # default_options.update(verify: false) # disable SSL verification(必要に応じて)
   default_params api_key: Rails.application.secrets.tmdb_api_key, language: 'ja-JP' #共通パラメタ
-  console
   format :json
 
   def self.index 

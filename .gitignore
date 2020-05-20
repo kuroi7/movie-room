@@ -22,3 +22,4 @@ public/uploads/*
 app/.DS_Store
 app/assets/.DS_Store
 public/uploads/*
+config/secrets.yml
