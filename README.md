@@ -56,7 +56,8 @@ MySQL
 Bootstrap  
 
 # 課題や今後実装したい機能
-映画ランキングの設定が
+Docker技術を使用した開発（2020/05/26時点でdocker学習中）
+映画ランキング登録のJavaScrip修正
 
 # DB設計
 
