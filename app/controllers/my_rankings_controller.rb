@@ -1,6 +1,6 @@
 class MyRankingsController < ApplicationController
   def index
-    @myRanking = MyRanking.rank(:row_order)
+    @myRanking = MyRanking.where(user_id: current_user.id).rank(:row_order)
   end
 
   def new
