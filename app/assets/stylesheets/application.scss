@@ -20,6 +20,8 @@
     object-fit: cover;
     border-radius: 50%;
     background-position: center center;
+    background-image: url(acount.png);
+    background-size: $size;
   }
 }
 .header__title--text{
