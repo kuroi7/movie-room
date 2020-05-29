@@ -28,7 +28,7 @@
         マイムービーランキング
         - if @user.id == current_user.id 
           .btn_area
-            = link_to my_rankings_path , class: "btn btn-primary" do
+            = link_to my_rankings_path , class: "btn btn-primary" , data: {"turbolinks" => false} do
               マイムービーランキングを設定する
       .ranking_area
         %ul
