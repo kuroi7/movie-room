@@ -20,7 +20,7 @@
         - @users.each do |user|
           .col-xs-3
             = link_to "/users/#{user.id}" do
-              %img(src="#{user.profile_img}" alt="profile_image" class="img-thumbnail")
+              %img(src="#{user.profile_img}" alt class="img-thumbnail"  onerror="this.onerror = null; this.src='';")
             %br
               = "名前：#{user.name}"
             .my_content__movie_ranking{ id: "movie_ranking" }
