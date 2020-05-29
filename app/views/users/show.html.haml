@@ -7,7 +7,7 @@
         %h2
           profile
           %span
-      %img(src="#{@user.profile_img}" alt="profile_image" class="img-thumbnail")
+      %img(src="#{@user.profile_img}" alt  onerror="this.onerror = null; this.src='';" class="img-thumbnail")
       %p #{@user.name}
       .my_content__profile--introduction
         = @user.introduction
@@ -90,4 +90,4 @@
                   %p.card-text
                     メンバー
                   - group.users.each do |user|
-                    %img(src="#{user.profile_img}" alt="profile_image" class="img-thumbnail")
+                    %img(src="#{user.profile_img}" alt class="img-thumbnail" onerror="this.onerror = null; this.src='';")

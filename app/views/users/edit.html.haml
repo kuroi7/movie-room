@@ -7,7 +7,7 @@
       = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
       = link_to "マイページに戻る", :back, class: 'btn'
     .account-page__inner--right.user-form
-      %img(src="#{current_user.profile_img}" alt="profile_image")
+      %img(src="#{current_user.profile_img}" alt  onerror="this.onerror = null; this.src='';")
       = form_for(current_user) do |f|
         .field
           .field-label
