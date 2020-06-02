@@ -56,8 +56,13 @@ MySQL
 Bootstrap  
 
 # 課題や今後実装したい機能
-Docker技術を使用した開発（2020/05/26時点でdocker学習中）  
 映画ランキング登録のJavaScrip修正
+フォロー機能のAjax化
+お気に入り機能
+
+# 今後、習得したい技術
+Docker技術を使用した開発（2020/05/26時点でdocker学習中）  
+Laravel
 
 # DB設計
 
