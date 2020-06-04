@@ -62,7 +62,7 @@ Bootstrap
 
 # 今後、習得したい技術
 Docker技術を使用した開発（2020/05/26時点でdocker学習中）  
-Laravel
+Laravelを用いたアプリ開発
 
 # DB設計
 
