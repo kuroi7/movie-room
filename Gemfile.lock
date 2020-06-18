@@ -253,6 +253,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport
   bootstrap-sass
   byebug
   carrierwave
