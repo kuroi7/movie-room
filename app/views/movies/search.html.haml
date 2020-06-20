@@ -20,8 +20,8 @@
       - @movie_results.each do |movie|
         %tr
           %td
-            %img(src= "https://image.tmdb.org/t/p/w200#{movie["poster_path"]}" alt= "poster")
-              -# = link_to movie["title"], action: 'show', id: "#{movie["id"]}"
+            = link_to movie_path(movie["id"]) do
+              %img(src= "https://image.tmdb.org/t/p/w200#{movie["poster_path"]}" alt= "poster")
           %td
             = link_to movie["title"], action: 'show', id: "#{movie["id"]}"
           %td
