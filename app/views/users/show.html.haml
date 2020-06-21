@@ -4,8 +4,8 @@
       %img
     .my_content__profile{ id: "profile" }
       %header
-        %h2
-          profile
+        %h1
+          プロフィール
           %span
       %img(src="#{@user.profile_img}" alt  onerror="this.onerror = null; this.src='';" class="img-thumbnail")
       %p #{@user.name}
@@ -17,19 +17,18 @@
           = icon('fas', 'cog', class: 'icon')
 
     .my_content__friends{ id: "friend" }
-      %h2
       %span.follow-wrapper{:id => "user_#{@user.id}"}
         = render 'follow_form', user: @user if signed_in?
         %h4
         = render 'users/stats'
 
     .my_content__movie_ranking{ id: "movie_ranking" }
-      %h2
+      %h2.user_content
         マイムービーランキング
-        - if @user.id == current_user.id 
-          .btn_area
-            = link_to my_rankings_path , class: "btn btn-primary" , data: {"turbolinks" => false} do
-              マイムービーランキングを設定する
+      - if @user.id == current_user.id 
+        .btn_area
+          = link_to my_rankings_path , class: "btn btn-primary" , data: {"turbolinks" => false} do
+            マイムービーランキングを設定する
       .ranking_area
         %ul
           - @user.MyRankings.each.with_index(1) do |myrank, i|
@@ -40,7 +39,7 @@
 
 
     .my_content__review{ id: "review" }
-      %h2
+      %h2.user_content
         レビュー
       .btn_area
         = link_to posts_path(user: @user.id), class: "btn btn-primary" do
@@ -71,11 +70,12 @@
                   });
     - if @user.id == current_user.id 
       .my_content__message{ id: "message" }
-        %h2
-          メッセージする
-        = link_to new_group_path ,class: "btn btn-primary" do
-          メッセージグループを作成する
-          = icon('far', 'edit', class: 'side-header__box__btn--edit')
+        %h2.user_content
+          メッセージ
+        .btn_area
+          = link_to new_group_path ,class: "btn btn-primary" do
+            メッセージグループを作成する
+            = icon('far', 'edit', class: 'side-header__box__btn--edit')
         %ul
           - @user.groups.each do |group|
             %li
