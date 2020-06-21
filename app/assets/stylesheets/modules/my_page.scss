@@ -16,6 +16,23 @@
     }
   }
 }
+.user_content{
+  font-size: 1.3em;
+  font-weight: bold;
+  position: relative;
+  padding: 0.5em;
+  background: #a6d3c8;
+  color: white;
+}
+.user_content::before {
+  position: absolute;
+  content: '';
+  top: 100%;
+  left: 0;
+  border: none;
+  border-bottom: solid 15px transparent;
+  border-right: solid 20px rgb(149, 158, 155);
+}
 
 .my_profile{
   background-color: #ffffff;
@@ -24,6 +41,7 @@
   .btn_area{
     width: 100%;
     height: 100%;
+    margin: 20px 0px;
     position: relative;
     .new-review-btn{
       position: absolute;
@@ -32,8 +50,9 @@
   }
 
   .my_content{
-    width: 80%;
+    width: 90%;
     padding: 50px 0px 0px 100px;
+    margin: 10px;
 
     &__profile{
       height: 50vh;
@@ -54,7 +73,7 @@
     }
 
     &__movie_ranking{
-      background-color: rgb(255, 255, 236);
+      // background-color: rgb(255, 255, 236);
       .ranking_area{
         padding-left: 40px;
       }
@@ -66,19 +85,22 @@
     }
 
     &__review{
-      background-color: rgb(255, 255, 236);
+      // background-color: rgb(255, 255, 236);
       @include side_scroll_list();
       margin-bottom: 50px;
     }
 
     &__message{
-      background-color: rgb(255, 255, 236);
+      // color: #ffffff;
+      // background-color: rgb(255, 255, 236);
       margin-bottom: 60px;
       @include side_scroll_list();
       li{
+        background-color: rgb(255, 255, 236);
         border: 1px solid #000; 
+        width: 200px;
       }
-      @include avater_img(150px);
+      @include avater_img(50px);
     }
   }
 }
