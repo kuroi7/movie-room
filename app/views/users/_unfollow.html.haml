@@ -1,2 +1,6 @@
 = form_for(current_user.following_relationships.find_by(following_id: user.id),html: { method: :delete },remote: true) do |f|
   = f.submit "Unfollow", class: "btn btn-large btn-danger"
+
+
+= form_for(current_user, url: relationship_path(@user), method: :delete, remote: true) do |f|
+  = f.submit "フォロー解除", class: "btn btn-outline-secondary"
