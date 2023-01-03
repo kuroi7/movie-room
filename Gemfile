@@ -62,7 +62,7 @@ gem 'mini_magick'
 gem 'jquery-ui-rails'
 gem 'ranked-model'
 gem 'bootstrap-sass'
-gem 'httparty', '0.13.5'
+gem 'httparty', '0.21.0'
 gem 'fog-aws'
 gem 'activesupport'
 
